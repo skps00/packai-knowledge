@@ -1,0 +1,33 @@
+{
+  "item": "momo_dlc:t-02-99",
+  "display": { "zh_cn": "空虚之梦", "en_us": "Dream of Emptiness" },
+  "mod": "momo_dlc",
+  "applies_to": { "mc": "1.19.2", "loader": "forge", "mod_versions": ["*"] },
+  "obtain": [
+    {
+      "type": "drop",
+      "mob": "minecraft:skeleton",
+      "requires": [{ "worn": "momo_dlc:t-02-99", "slot": "curios:feet" }],
+      "chance": "1%",
+      "source": "mod:jei_info",
+      "tier": "B"
+    },
+    {
+      "type": "loot",
+      "container": "nether_chest",
+      "source": "mod:jei_info",
+      "tier": "B"
+    }
+  ],
+  "worn": [
+    {
+      "slot": "curios:feet",
+      "effects": ["example: +10% movement speed while worn"],
+      "source": "mod:attribute",
+      "tier": "A"
+    }
+  ],
+  "notes": "EXAMPLE FILE — replace or delete. Shows the shape of an entry; facts here are placeholders.",
+  "contributors": ["skps00"],
+  "updated": "2026-09-14"
+}

@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "generated": "2026-09-14",
+  "mods": {},
+  "note": "Map of namespace -> { file, sha256, entries, updated }. Maintained by the maintainer's tooling; not required for contributing a single entry."
+}

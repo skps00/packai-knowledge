@@ -1,0 +1,52 @@
+name: "Missing / wrong item info"
+description: "Report an item the Pack AI assistant could not answer, or a wrong answer"
+title: "[item] "
+labels: ["knowledge"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Only **mod** mechanics belong here (tooltips, JEI info, loot tables, attributes, guidebooks).
+        Modpack scripts (KubeJS) are handled locally by the mod and are out of scope.
+  - type: input
+    id: item
+    attributes:
+      label: Item id
+      description: "exact id, e.g. momo_dlc:t-02-99"
+      placeholder: "namespace:path"
+    validations:
+      required: true
+  - type: input
+    id: mod
+    attributes:
+      label: Mod name + version
+      placeholder: "e.g. momo_dlc 1.4.2 (Forge 1.19.2)"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is missing / wrong
+      options:
+        - "how to obtain it"
+        - "what it does when used (right-click / hold)"
+        - "what it does when worn / equipped"
+        - "the assistant gave a wrong answer"
+        - "other"
+    validations:
+      required: true
+  - type: textarea
+    id: facts
+    attributes:
+      label: The correct mechanic
+      description: "Describe it plainly. If you can see it in-game, say where (tooltip line, JEI info page, guidebook page)."
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Where did you see it? (provenance)
+      description: "tier A = data (loot table/recipe/attribute), B = tooltip/JEI info/guidebook, C = quest text"
+      placeholder: "e.g. JEI info page of the item (tier B)"
+    validations:
+      required: true
