@@ -7,12 +7,12 @@ body:
     attributes:
       value: |
         Thanks! Only **mod** mechanics belong here (tooltips, JEI info, loot tables, attributes, guidebooks).
-        Modpack scripts (KubeJS) are handled locally by the mod and are out of scope.
+        Modpack scripts (KubeJS) are handled locally by the mod and are out of scope — including item ids that exist only because a pack registered them.
   - type: input
     id: item
     attributes:
       label: Item id
-      description: "exact id, e.g. momo_dlc:t-02-99"
+      description: "exact id, e.g. create:goggles"
       placeholder: "namespace:path"
     validations:
       required: true
@@ -20,7 +20,7 @@ body:
     id: mod
     attributes:
       label: Mod name + version
-      placeholder: "e.g. momo_dlc 1.4.2 (Forge 1.19.2)"
+      placeholder: "e.g. Create 0.5.1 (Forge 1.19.2)"
     validations:
       required: true
   - type: dropdown

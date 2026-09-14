@@ -8,6 +8,7 @@ Community knowledge entries for **mod items** used by the [Pack AI Assistant](ht
 
 - ✅ **Mod knowledge only**: tooltip lines (including Shift-gated ones), JEI info pages, loot tables / recipe JSON inside mod jars, attribute modifiers, mod guidebook pages.
 - ❌ **No KubeJS / pack-script knowledge.** Scripted mechanics differ per modpack, so each pack resolves them locally. Nothing from `kubejs/**` belongs in this repository.
+- ❌ **No ids that exist only because a modpack registered them** (e.g. a namespace created by a pack's KubeJS scripts). If no mod jar provides the item, it is not mod knowledge — an entry keyed to such an id is rejected in review.
 
 ## Layout
 
@@ -24,21 +25,48 @@ scripts/validate.py            schema + duplicate-key validation (runs in CI)
 
 ```json
 {
-  "item": "momo_dlc:t-02-99",
-  "display": { "zh_cn": "空虚之梦", "en_us": "Dream of Emptiness" },
-  "mod": "momo_dlc",
-  "applies_to": { "mc": "1.19.2", "loader": "forge", "mod_versions": ["*"] },
+  "item": "create:goggles",
+  "display": {
+    "en_us": "Engineer's Goggles",
+    "zh_cn": "工程师护目镜"
+  },
+  "mod": "create",
+  "applies_to": {
+    "mc": "1.19.2",
+    "loader": "forge",
+    "mod_versions": [
+      "0.5.x"
+    ]
+  },
   "obtain": [
-    { "type": "drop", "mob": "minecraft:skeleton",
-      "requires": [{ "worn": "momo_dlc:t-02-99", "slot": "curios:feet" }],
-      "chance": "1%",
-      "source": "mod:jei_info", "tier": "B" }
+    {
+      "type": "craft",
+      "source": "mod:recipe_json",
+      "tier": "A"
+    }
   ],
-  "use": [ { "trigger": "hold_right_click", "effect": "shows upcoming hints (N/4)",
-             "source": "mod:tooltip", "tier": "B" } ],
-  "worn": [ { "slot": "curios:feet", "effects": ["+1880 max mana"], "source": "mod:attribute", "tier": "A" } ],
-  "notes": "",
-  "contributors": ["your-github-name"],
+  "use": [
+    {
+      "trigger": "wear_in_head_slot",
+      "effect": "shows the Goggles overlay (stress / capacity / block info)",
+      "source": "mod:tooltip",
+      "tier": "B"
+    }
+  ],
+  "worn": [
+    {
+      "slot": "head",
+      "effects": [
+        "shows the Goggles information overlay while worn"
+      ],
+      "source": "mod:tooltip",
+      "tier": "B"
+    }
+  ],
+  "notes": "EXAMPLE FILE — the shape is what matters; the values are illustrative placeholders, verify against the mod before publishing.",
+  "contributors": [
+    "skps00"
+  ],
   "updated": "2026-09-14"
 }
 ```
